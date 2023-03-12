@@ -23,10 +23,19 @@ const getDataPromiseChain = () => {
 const getData = async () => {
   // use the async/await pattern to refactor the code above and make the tests pass
   // you should return an object in the same shape as the `retVal` above
+  const retVal = {};
+  const res1 = await fakeApiCall({ name: "Heather" });
+  retVal.name = res1.data.name;
+  const res2 = await fakeApiCall({ job: "code monkey" });
+  retVal.job = res2.data.job;
+  const res3 = await fakeApiCall({ age: 420 });
+  retVal.age = res3.data.age;
+  return retVal;
 };
 
 const handleMultiplePromises = async (promises = []) => {
   // use promise.all to resolve multiple promises
+  return Promise.all(promises);
 };
 
 /**
@@ -36,6 +45,12 @@ const handleMultiplePromises = async (promises = []) => {
  */
 const myPromiseAll = async (promises = []) => {
   // DO NOT use Promise.all
+  const retVal = [];
+  for (const promise of promises) {
+    const res = await promise;
+    retVal.push(res);
+  }
+  return retVal;
 };
 
 module.exports = {
