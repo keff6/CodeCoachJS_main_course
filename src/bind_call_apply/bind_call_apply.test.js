@@ -74,7 +74,7 @@ describe.skip("Function.prototype.myBind", () => {
   });
 });
 
-describe("Function.prototype.myApply", () => {
+describe.skip("Function.prototype.myApply", () => {
   const funcThatNeedsThis = function (arg1, arg2) {
     return `${this.name} likes ${arg1} and ${arg2}`;
   };

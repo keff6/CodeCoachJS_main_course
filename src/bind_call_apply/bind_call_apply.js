@@ -3,13 +3,10 @@
  *
  * @returns {string} `Hey my name is <person name>
  */
-const Person = function () {
-  this.name = this.name;
-};
+const Person = function () {};
 
 function personGreeting() {
   // your code here
-  return `Hey my name is `;
 }
 
 /**
