@@ -9,10 +9,10 @@ const getDataPromiseChain = () => {
   return fakeApiCall({ name: "Heather" }).then((res) => {
     retVal.name = res.data.name;
 
-    fakeApiCall({ job: "code monkey" }).then((res) => {
+    return fakeApiCall({ job: "code monkey" }).then((res) => {
       retVal.job = res.data.job;
 
-      fakeApiCall({ age: 420 }).then((res) => {
+      return fakeApiCall({ age: 420 }).then((res) => {
         retVal.age = res.data.age;
         return retVal;
       });
@@ -45,6 +45,7 @@ const handleMultiplePromises = async (promises = []) => {
  */
 const myPromiseAll = async (promises = []) => {
   // DO NOT use Promise.all
+
   const retVal = [];
   for (const promise of promises) {
     const res = await promise;
@@ -52,7 +53,6 @@ const myPromiseAll = async (promises = []) => {
   }
   return retVal;
 };
-
 module.exports = {
   getDataPromiseChain,
   getData,

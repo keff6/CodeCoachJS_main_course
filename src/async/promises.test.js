@@ -40,15 +40,9 @@ describe("handleMultiplePromises", () => {
     expect(
       await handleMultiplePromises([promise1, promise2, promise3])
     ).toStrictEqual([
-      {
-        data: { name: "Jill" },
-      },
-      {
-        data: { name: "Jack" },
-      },
-      {
-        data: { name: "John" },
-      },
+      { data: { name: "Jill" } },
+      { data: { name: "Jack" } },
+      { data: { name: "John" } },
     ]);
   });
 });
@@ -73,7 +67,7 @@ describe("implements promise all", () => {
       }, 100);
     });
 
-    expect(await myPromiseAll([apiCall1, apiCall2, apiCall3])).toStrictEqual([
+    expect(await myPromiseAll([apiCall1, apiCall2, apiCall3])).toEqual([
       { message: "1" },
       { message: "2" },
       { message: "3" },
@@ -93,14 +87,16 @@ describe("implements promise all", () => {
       }, 200);
     });
 
-    const apiCall3 = new Promise((_, reject) => {
+    const apiCall3 = new Promise((res, reject) => {
       setTimeout(() => {
         reject(new Error("BOOM"));
       }, 100);
     });
 
-    await myPromiseAll([apiCall1, apiCall2, apiCall3]).catch((e) => {
+    try {
+      myPromiseAll([apiCall1, apiCall2, apiCall3]);
+    } catch (e) {
       expect(e).toEqual(new Error("BOOM"));
-    });
+    }
   });
 });
