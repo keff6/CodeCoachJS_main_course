@@ -10,10 +10,14 @@ class PubSub {
 
   subscribe(event, callback) {
     // TODO: add the callback to the subscribers
+    this.subscribers[event]
+      ? this.subscribers[event].push(callback)
+      : (this.subscribers[event] = [callback]);
   }
 
   publish(event, data) {
     // TODO: call the callback with the data
+    (this.subscribers[event] || []).forEach((callback) => callback(data));
   }
 }
 
@@ -25,6 +29,10 @@ class PubSub {
 class Singleton {
   constructor() {
     // TODO: return the same instance
+    if (Singleton.instance) {
+      throw new Error("Cannot create another instance");
+    }
+    Singleton.instance = this;
   }
 }
 

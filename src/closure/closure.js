@@ -8,6 +8,12 @@
 
 const once = (callback) => {
   let called = false;
+  return (...args) => {
+    if (!called) {
+      called = true;
+      return callback(...args);
+    }
+  };
 };
 
 /* 
@@ -20,7 +26,11 @@ const once = (callback) => {
     add2(3) -> 5
 */
 
-const addFactory = (initialNum) => {};
+const addFactory = (initialNum) => {
+  return (num) => {
+    return initialNum + num;
+  };
+};
 
 /* 
     Our person has some sensitive information exposed below
@@ -31,22 +41,27 @@ const addFactory = (initialNum) => {};
 */
 
 const personWithPrivateProperties = () => {
+  let accountBalance = -5;
+  const bankInfo = { name: "Bank of Venezuela", sensitiveId: "BV123" };
   return {
     age: 10,
     job: "Pizza Driver",
-    accountBalance: -5,
-    bankInfo: { name: "Bank of Venezuela", sensitiveId: "BV123" },
-    updateBank: () => {
+    updateBank: ({ name, sensitiveId }) => {
       //your code here
+      bankInfo.name = name;
+      bankInfo.sensitiveId = sensitiveId;
     },
     getBankInfo: () => {
       //your code here
+      return bankInfo.name;
     },
     getAccountBalance: () => {
       //your code here
+      return accountBalance;
     },
-    updateAccountBalance: () => {
+    updateAccountBalance: (amt) => {
       //your code here
+      accountBalance += amt;
     },
   };
 };
