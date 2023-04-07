@@ -46,12 +46,26 @@ const handleMultiplePromises = async (promises = []) => {
 const myPromiseAll = async (promises = []) => {
   // DO NOT use Promise.all
 
-  const retVal = [];
-  for (const promise of promises) {
-    const res = await promise;
-    retVal.push(res);
-  }
-  return retVal;
+  // we need to preserv the order of the promises
+  const retVal = new Array(promises.length);
+
+  let resolved = 0;
+  return new Promise((resolve, reject) => {
+    for (let i = 0; i < promises.length; i++) {
+      promises[i]
+        .then((res) => {
+          retVal[i] = res;
+          resolved += 1;
+
+          //once all promises are resolved, resolve the promise
+          // if we don't do this, the promise will resolve before all promises are resolved
+          if (resolved === promises.length) resolve(retVal);
+        })
+        .catch((e) => {
+          reject(e);
+        });
+    }
+  });
 };
 module.exports = {
   getDataPromiseChain,

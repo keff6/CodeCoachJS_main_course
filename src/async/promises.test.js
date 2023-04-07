@@ -94,7 +94,7 @@ describe("implements promise all", () => {
     });
 
     try {
-      myPromiseAll([apiCall1, apiCall2, apiCall3]);
+      await myPromiseAll([apiCall1, apiCall2, apiCall3]);
     } catch (e) {
       expect(e).toEqual(new Error("BOOM"));
     }
