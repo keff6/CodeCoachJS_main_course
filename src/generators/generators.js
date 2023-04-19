@@ -5,7 +5,10 @@
  * @returns {iterator} ex: {value: 1, done: false}
  */
 function* forLoopGenerator(intial) {
-    // your code here
+	// your code here
+	while (intial > 0) {
+		yield intial--;
+	}
 }
 
 /**
@@ -14,10 +17,13 @@ function* forLoopGenerator(intial) {
  * @returns {iterator} ex: {value: 1231234, done: false}
  */
 function* generateRandomId() {
-    // your code here
+	// your code here
+	while (true) {
+		yield Math.floor(Math.random() * 1000000);
+	}
 }
 
 module.exports = {
-    forLoopGenerator,
-    generateRandomId,
+	forLoopGenerator,
+	generateRandomId,
 };
