@@ -2,8 +2,6 @@
 
 You are going to stretch your Javascript knowledge and make you more confident with one of the most popular programming languages in the world 🌏!
 
-This program will be a combination of videos, group sessions and most importantly writing Javascript!
-
 Many of the concepts you will cover you may be familiar with but familiarity !== understanding.
 
 That leads us to our philosophy on learning:
@@ -19,20 +17,40 @@ We have laid out the most common concepts that confuse JS developers. Here's how
 5. Often times, the solution will be in the video in the `README.md` - DO NOT simply copy the answer from there! You will learn nothing
 6. For the love of Bob, please do the `Your Turn` sections in each `README.md` - these will help you really retain the information!
 
-We know that getting your dream job as a software engineer or excelling in your current role requires a strong technical foundation but that's not all!
+We know that getting your dream job as a software engineer or excelling in your current role requires a strong technical foundation.
 
-Your LinkedIn, resume and general job strategy must be aligned with your goals and your mindset must be in the correct state to perform to the best of your ability.
+---
 
 ### Setup
 
-1. Fork this repo
+---
+
+1. Fork this repo OR open in Code Spaces with Git Pod
 2. In your terminal run `npm install`
 3. To run tests - first unskip the tests in the file you are working on by removing all `skip`s. Then run `npm test`. To test a specific file: `npm test path/to/file.test.js`
-4. Once you complete a module, send a quick video walking through your work and a screenshot of the passing tests (or include it in the video) via Slack or email at brianjenney@jswizards.io
+4. Feel free to post your solution video in a Slack channel so others can learn from your work. If you post on LinkedIn or Twitter, tag us!
+
+---
 
 #### How to run tests:
 
+---
+
 🎥 https://www.loom.com/share/7a1fd8ca234645538afd546246d13ebe
+
+---
+
+#### Solutions
+
+---
+
+Don't check out this branch unless you really need to:
+
+[`solutions`](https://github.com/CodeCoachJS/main_course/tree/secret_solutions)
+
+```bash
+git checkout secret_solutions
+```
 
 ---
 
@@ -40,44 +58,47 @@ Your LinkedIn, resume and general job strategy must be aligned with your goals a
 
 ---
 
+Here's the order I suggest you approach this material but feel free to jump around and please `git pull` every so often to get the most up to date material.
+
 ### Table Stakes
 
-- [ ] Prototypes
-- [ ] Bind, Call, Apply
-- [ ] Closure
+-   [ ] Prototypes
+-   [ ] Bind, Call, Apply
+-   [ ] Closure
 
 ### ES6 and Beyond
 
-- [ ] Map, Filter, Reduce
-- [ ] Generators
-- [ ] Async
-- [ ] Classes
+-   [ ] Map, Filter, Reduce
+-   [ ] Generators
+-   [ ] Async
+-   [ ] Classes
 
 ### Event Handling
 
-- [ ] Event Handling (Snake Game)
+-   [ ] Event Handling (Snake Game)
 
 ### Time Tested Patterns
 
-- [ ] Design Patterns
-- [ ] Lodash Replica-Lite
+-   [ ] Design Patterns
+-   [ ] Lodash Replica-Lite
+-   [ ] Functional JS
 
 ### Big O and Intro to Sorting and Searching
 
-- [ ] Sorting and Searching Algos
-
-### To Understand Recursion... you must first understand recursion
-
-- [ ] Recursion in JS
+-   [ ] Sorting and Searching Algos
 
 ### Data Structures
 
-- [ ] Trees
-- [ ] Linked Lists
-- [ ] Graphs
-- [ ] Stacks and Queues
+-   [ ] Trees and tries
+-   [ ] Linked Lists
+-   [ ] Graphs
+-   [ ] Stacks and Queues
+
+### To Understand Recursion... you must first understand recursion
+
+-   [ ] Recursion in JS
 
 ## Common Approaches to JS problems
 
-- [ ] Sliding Window
-- [ ] Frequency Counter
+-   [ ] Sliding Window
+-   [ ] Frequency Counter
