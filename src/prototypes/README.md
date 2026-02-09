@@ -15,12 +15,12 @@ https://medium.com/javascript-scene/master-the-javascript-interview-what-s-the-d
 Create a short video explaining prototypal inheritance and how it differs from class inheritance and send to your mentor via slack.
 
 # Written Response
-My response:
+## My response:
 
 class inheritance is tightly coupled, that can be inflexible to future changes and can get us in the gorilla/banana dilemma: "I want a Banana but to get the banana I also get the gorilla aand the whole jungle" 
 Prototypal ih=nheritance favours composition, with help us extend objects not because of what they are, but because of what they do, allowing us to addd features to the objects that can be shared between objects as we need.
 
-Improved response:
+## Improved response:
 
 Class inheritance is tightly coupled and can be inflexible, often leading to the “gorilla/banana” problem — you want a small piece of functionality but end up inheriting an entire hierarchy you don’t need.
 
@@ -30,20 +30,20 @@ This model encourages composition and behavior reuse based on what objects do, n
 
 + Class inheritance
 
-Objects are instances of classes
+    Objects are instances of classes
 
-Behavior is defined upfront
+    Behavior is defined upfront
 
-Inheritance is static
+    Inheritance is static
 
-You inherit everything, whether you want it or not
+    You inherit everything, whether you want it or not
 
 + Prototypal inheritance
 
-Objects inherit directly from other objects
+    Objects inherit directly from other objects
 
-Behavior is delegated at runtime
+    Behavior is delegated at runtime
 
-You can extend objects incrementally
+    You can extend objects incrementally
 
-Sharing happens via the prototype chain
+    Sharing happens via the prototype chain
