@@ -70,7 +70,7 @@ Here's the order I suggest you approach this material but feel free to jump arou
 
 -   [X] Map, Filter, Reduce
 -   [X] Generators
--   [ ] Async
+-   [X] Async
 -   [ ] Classes
 
 ### Event Handling
