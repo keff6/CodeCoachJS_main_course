@@ -4,6 +4,7 @@ class Bank {
      */
     static createRoutingNumber() {
         //TODO
+        return crypto.getRandomValues()
     }
 
     constructor(initialAmt = 0) {
@@ -17,6 +18,8 @@ class Bank {
      */
     deposit = (amt) => {
         //TODO
+        this.account = this.account + amt
+        return new Promise((resolve) => resolve(this.account))
     };
 
     /**
@@ -26,6 +29,12 @@ class Bank {
      */
     withdraw = (amt) => {
         //TODO
+        return new Promise((resolve, reject) => {
+            if(amt > this.account) reject(new Error('Insufficient Funds'))
+
+            this.account = this.account - amt
+            resolve(this.account)
+        })
     };
 
     /**
