@@ -1,6 +1,16 @@
 <style>
+    html {
+        width: 100%;
+    }
+    body {
+        background-color: rgb(31, 32, 36);
+        color:cadetblue;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
     #grid {
-        width: 240px;
+        width: 230px;
         height: 210px;
         display: flex;
         flex-wrap: wrap;
@@ -8,6 +18,7 @@
 
     .grid-space {
         border: 1px solid grey;
+        background-color: rgb(31, 32, 36);
         width: 20px;
         height: 20px;
     }
@@ -44,9 +55,21 @@
         Starting the game over should reset the points, move the snake back to its original positions and clear all apples
     */
     const grid = document.getElementById('grid');
-    let pts = 0;
-
+    // buttons
     const startGameBtn = document.getElementById('startGame');
+    const upBtn = document.getElementById('up');
+    const downBtn = document.getElementById('down');
+    const leftBtn = document.getElementById('left');
+    const rightBtn = document.getElementById('right');
+    const pointsDiv = document.getElementById('pts');
+    
+    let direction = "right";
+    let pts = 0;
+    let row = 0;
+    let snake = [0, 1, 2];
+    let moveSnake  = null
+    let apple = null
+    
 
     const createBoard = () => {
         for (let i = 0; i < 100; i++) {
@@ -59,19 +82,93 @@
 
     startGameBtn.addEventListener('click', () => {
         // add your code here
+        grid.innerHTML = "";
+        direction = "right";
+        pts = 0;
+        row = 0;
+        snake = [0, 1, 2];
+        clearInterval(moveSnake);
         startGame();
     });
 
+    upBtn.addEventListener('click', () => {
+        direction = "up";
+    });
+
+    downBtn.addEventListener('click', () => {
+        direction = "down";
+    });
+
+    leftBtn.addEventListener('click', () => {
+        direction = "left";
+    });
+
+    rightBtn.addEventListener('click', () => {
+        direction = "right";
+    });
+
+    function drawSnake(grid, tail = 0) {
+        grid[tail].classList.remove("snaky");
+        snake.forEach((s) => {
+            grid[s].classList.add("snaky");
+        });
+    }
+
+    function drawApple(grid) {
+        const position = Math.trunc(Math.random() * 100)
+        apple = position
+        grid[position].classList.add("apple");
+    }
+
+    function removeApple(grid, pos) {
+        grid[pos].classList.remove("apple");
+    }
+
     const startGame = () => {
-        createBoard();
-
+        createBoard()
         const allGridElems = document.querySelectorAll('.grid-space');
+        drawApple(allGridElems)
+        drawSnake(allGridElems, 0)
+        
 
-        // add any code you need to start the game
-        // like setting the direction or helper functions to eat an apple
-
-        const moveSnake = setInterval(() => {
+        moveSnake = setInterval(() => {
             // add code here to move snake
+            
+            let tail = snake[0]
+
+            let currentSnake = [...snake]
+            let nextHead = currentSnake[2]
+
+            switch(direction) {
+                case "down": 
+                    nextHead = nextHead + 10
+                    break;
+                case "up":
+                    nextHead = nextHead - 10
+                    break;
+                case "left":
+                    nextHead = --nextHead
+                    break;
+                case "right":
+                    nextHead = ++nextHead
+                    break;
+                default:
+                    nextHead = ++nextHead
+            }
+
+            let nextSnake = [currentSnake[1], currentSnake[2], nextHead]
+            
+            snake = [nextSnake[0], nextSnake[1], nextSnake[2]]
+            drawSnake(allGridElems, tail)
+
+            if(nextHead === apple) {
+                removeApple(allGridElems, apple)
+                drawApple(allGridElems)
+                pts++
+            }
+            pointsDiv.innerText = pts
         }, 1000);
     };
+
+    createBoard()
 </script>
