@@ -6,6 +6,19 @@
  */
 const myFlatMap = (arr) => {
     // your code here
+    let result = []
+    let arrayQueue = [arr]
+
+    while(arrayQueue.length) {
+        let current = arrayQueue.pop()
+
+        for(let item of current) {
+            if(Array.isArray(item)) arrayQueue.unshift(item)
+            else result.push(item)
+        }
+    }
+
+    return result
 };
 
 /**
@@ -17,6 +30,13 @@ const myFlatMap = (arr) => {
  */
 const myConcat = (arr, ...values) => {
     // your code here
+    let result = [...arr]
+
+    for(let val of values) {
+        result.push(...val)
+    }
+
+    return result
 };
 
 /**
@@ -28,6 +48,7 @@ const myConcat = (arr, ...values) => {
  */
 const myReject = (arr, itemToReject) => {
     // your code here
+    return arr.filter((val) => val !== itemToReject)
 };
 
 module.exports = {
