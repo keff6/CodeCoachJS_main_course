@@ -81,7 +81,7 @@ Here's the order I suggest you approach this material but feel free to jump arou
 
 -   [X] Design Patterns
 -   [X] Lodash Replica-Lite
--   [ ] Functional JS
+-   [X] Functional JS
 
 ### Big O and Intro to Sorting and Searching
 
