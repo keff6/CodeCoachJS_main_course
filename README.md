@@ -90,7 +90,7 @@ Here's the order I suggest you approach this material but feel free to jump arou
 ### Data Structures
 
 -   [X] Trees and tries
--   [ ] Linked Lists
+-   [X] Linked Lists
 -   [ ] Graphs
 -   [ ] Stacks and Queues
 
