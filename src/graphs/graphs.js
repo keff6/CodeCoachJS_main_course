@@ -22,8 +22,21 @@ class Graph {
     }
 
     // implements breadth first search
-    bfs(node, visited = []) {
+    bfs(node) {
         //add your code here
+        const visited = [node]
+        const queue = [node]
+
+        while(queue.length) {
+            const currentVertex = queue.shift()
+
+            if(!visited.includes(currentVertex)) {
+                visited.push(currentVertex)
+            }
+            for(let e of this.adjList[currentVertex]) {
+                queue.push(e)
+            }
+        }
 
         return visited;
     }
@@ -31,6 +44,11 @@ class Graph {
     // implements depth first search
     dfs(node, visited = []) {
         //add your code here
+        if(!visited.includes(node)) visited.push(node)
+
+        for(let e of this.adjList[node]) {
+            this.dfs(e, visited)
+        }
 
         return visited;
     }
