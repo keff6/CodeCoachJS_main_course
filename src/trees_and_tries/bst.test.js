@@ -11,23 +11,31 @@ mytree.insert(5);
 mytree.insert(9);
 mytree.insert(27);
 
-describe.skip('search', () => {
+describe('search', () => {
     it('returns a boolean depending whether a value is present in the tree', () => {
         expect(mytree.search(25)).toBe(true);
         expect(mytree.search(100)).toBe(false);
     });
 });
 
-describe.skip('inorder', () => {
+describe('inorder', () => {
     it('returns an array of tree values in order', () => {
         expect(mytree.inorder()).toEqual([5, 7, 9, 10, 13, 15, 17, 22, 25, 27]);
     });
 });
 
-describe.skip('postorder', () => {
+describe('postorder', () => {
     it('returns an array of tree values in reverse order', () => {
         expect(mytree.postorder()).toEqual([
             27, 25, 22, 17, 15, 13, 10, 9, 7, 5,
+        ]);
+    });
+});
+
+describe('bfs', () => {
+    it('returns an array of tree values in breadth first order', () => {
+        expect(mytree.bfs()).toEqual([
+            15,10,25,7,13,22,27,5,9,17,
         ]);
     });
 });

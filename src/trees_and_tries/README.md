@@ -21,4 +21,12 @@ https://www.studytonight.com/advanced-data-structures/trie-data-structure-explai
 ### Your Turn
 
 1. What are some real world use cases for tries? How about trees?
+
+trieas are used for auto complete or spellcheckers
+trees are used everywhere, one example being the DOM of modern browsers
+
 2. What is the Big O for searching for a value in a BST? How about a binary tree?
+
+on a BST the bigO is O(log n) because each time we reduce the search to the half
+on a binary tree bigO is going to be O(n) because we potentially have to visit every node
+
