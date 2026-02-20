@@ -12,22 +12,27 @@ class Stack {
 
 	pop() {
 		// TODO
+		return this.items.pop()
 	}
 
 	peek() {
 		// TODO
+		return this.items[this.items.length - 1]
 	}
 
 	isEmpty() {
 		// TODO
+		return this.items.length === 0
 	}
 
 	size() {
 		// TODO
+		return this.items.length
 	}
 
 	clear() {
 		// TODO
+		this.items = []
 	}
 
 	print() {

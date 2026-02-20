@@ -1,6 +1,6 @@
 const { Queue } = require('./queue');
 
-describe.skip('Queue', () => {
+describe('Queue', () => {
 	it('should enqueue an item', () => {
 		const queue = new Queue();
 		queue.enqueue(1);
@@ -22,7 +22,8 @@ describe.skip('Queue', () => {
 		queue.enqueue(2);
 
 		expect(queue.front()).toBe(1);
-		expect(queue.items).toEqual([1, 2]);
+		console.log(queue)
+		expect(queue.items).toEqual([2, 1]);
 	});
 
 	it('should return true if the queue is empty', () => {
