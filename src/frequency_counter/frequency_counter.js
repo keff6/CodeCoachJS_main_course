@@ -5,6 +5,14 @@
  */
 const countFrequency = (arr) => {
   // add your code here
+  const frequency = {}
+
+  for(let n of arr) {
+    if(frequency.hasOwnProperty(n)) frequency[n]++
+    else frequency[n] = 1
+  }
+
+  return frequency
   // returns an object with the frequency of each value in the array
 };
 
@@ -16,6 +24,15 @@ const countFrequency = (arr) => {
 
 const getDuplicates = (arr) => {
   // add your code here
+  const current = {}
+  const res = []
+
+  for(let n of arr) {
+    if(current.hasOwnProperty(n)) res.push(n)
+    else current[n] = true
+  }
+
+  return res
   // returns an array of all the duplicate values in the array
 };
 
