@@ -11,6 +11,15 @@
  */
 const flattenArray = (arr, result = []) => {
 	// add your code here
+	for(let item of arr) {
+		if(!Array.isArray(item)) {
+			result.push(item)
+		} else {
+			flattenArray(item, result)
+		}
+	}
+
+	return result
 };
 
 // console.log(flattenArray([1, [2, [3, [4, 5]]]])); // --> [1,2,3,4,5]
@@ -25,6 +34,16 @@ const flattenArray = (arr, result = []) => {
 
 const fileExplorer = (obj, key) => {
 	// add your code here
+	for(let k of Object.keys(obj)) {
+		if(k.toString() === key.toString()) return obj[k]
+
+		if(typeof obj[k] === "object" && obj[k] !== null) {
+      const result = fileExplorer(obj[k], key)
+      if (result !== false) return result
+		}
+	}
+
+	return false
 	// it should return false if the key cannot be found
 };
 
@@ -36,6 +55,26 @@ const fileExplorer = (obj, key) => {
  */
 const permutate = (nums = []) => {
 	// add your code here
+	let n = nums.length
+	let [sol, res] = [[], []]
+
+	function recurse() {
+		if(sol.length === n) {
+			res.push([...sol])
+			return
+		}
+
+		for(let k of nums) {
+			if(!sol.includes(k)) {
+				sol.push(k)
+				recurse()
+				sol.pop()
+			}
+		}
+	}
+
+	recurse()
+	return res
 	// returns nested array of all possible permuations
 };
 
@@ -47,6 +86,21 @@ const permutate = (nums = []) => {
  */
 const subsets = (nums = []) => {
 	// add your code here
+	let solutions = []
+
+	function recurse(currSolutions, remains) {
+		solutions.push([...currSolutions])
+
+		for(let i=0; i< remains.length; i++) {
+			currSolutions.push(remains[i])
+			recurse(currSolutions, remains.slice(i + 1))
+			currSolutions.pop()
+		}
+	}
+	
+	recurse([], nums)
+	console.log(solutions)
+	return [solutions].sort((a, b) => a - b)
 	// returns nested array of all possible subsets
 };
 
